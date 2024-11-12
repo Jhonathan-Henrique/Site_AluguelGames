@@ -5,9 +5,13 @@ function alterarStatus(id) { //Aqui eu criei uma function onde o parametro se ch
   
 
   if (imagem.classList.contains('dashboard__item__img--rented')) { //Unica coisa que diferenciava um jogo alugado era a imagem e o botao, entao aqui se a imagem estiver alugada eu faço isso....
-    imagem.classList.remove('dashboard__item__img--rented'); // Aqui a pessoa clicou noque estava alugado para devolver entao eu removi a classe que deixava o botao de alugado
-    btn.classList.remove('dashboard__item__button--return') // tambem removi oque deixava o botao apagado
-    btn.textContent = 'Alugar' // Aqui eu mudei o texto do botao com text.Content.
+    
+    if (confirmarDevolucao()) {
+
+      imagem.classList.remove('dashboard__item__img--rented'); // Aqui a pessoa clicou noque estava alugado para devolver entao eu removi a classe que deixava o botao de alugado
+      btn.classList.remove('dashboard__item__button--return') // tambem removi oque deixava o botao apagado
+      btn.textContent = 'Alugar' // Aqui eu mudei o texto do botao com text.Content.
+    }
   } else {  // Senao tiver alugado eu faço isso.....
     imagem.classList.add('dashboard__item__img--rented');
     btn.classList.add('dashboard__item__button--return')
@@ -15,3 +19,12 @@ function alterarStatus(id) { //Aqui eu criei uma function onde o parametro se ch
   }
 
 }
+
+
+// Desafio: No projeto Alugames, uma confirmação ao devolver um jogo, solicitando ao usuário que confirme a devolução antes que ela seja concluída. Isso pode ajudar a evitar devoluções acidentais.
+
+function confirmarDevolucao(){
+  return confirm("Tem certeza que deseja devolver este jogo?")
+}
+
+//
